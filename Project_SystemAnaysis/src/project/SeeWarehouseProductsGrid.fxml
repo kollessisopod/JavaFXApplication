@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="530.3999755859375" minWidth="10.0" prefWidth="287.19996337890626" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="453.60003662109375" minWidth="10.0" prefWidth="312.80003662109374" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="402.0">
+        <items>
+          <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="64.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0">
+               <children>
+                  <ListView fx:id="listViewProductsOfWarehouseDetailed" layoutX="8.0" layoutY="75.0" prefHeight="309.0" prefWidth="200.0" />
+                  <Label layoutX="58.0" layoutY="47.0" text="Urun Seciniz">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label fx:id="labelProductName" alignment="TOP_LEFT" layoutX="14.0" layoutY="37.0" prefHeight="71.0" prefWidth="298.0" text="Urun Ismi:" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelProductBrand" alignment="TOP_LEFT" layoutX="14.0" layoutY="116.0" prefHeight="95.0" prefWidth="298.0" text="Urun Markasi:" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelWarehouseQuantity" alignment="TOP_LEFT" layoutX="14.0" layoutY="240.0" prefHeight="81.0" prefWidth="298.0" text="Depodaki Urun Adedi:" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

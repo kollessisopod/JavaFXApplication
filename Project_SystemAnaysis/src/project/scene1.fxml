@@ -12,7 +12,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="640.0" layoutY="360.0" mnemonicParsing="false" onAction="#switchToLogin" text="Programı Başlat" textAlignment="JUSTIFY">
+      <Button layoutX="640.0" layoutY="360.0" mnemonicParsing="false" onAction="#startProgram" text="Programı Başlat" textAlignment="JUSTIFY">
          <font>
             <Font size="36.0" />
          </font>

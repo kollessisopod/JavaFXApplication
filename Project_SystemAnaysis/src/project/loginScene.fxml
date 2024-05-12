@@ -44,7 +44,7 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginbutton1" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginSubeCalisani" text="Giris Yap">
+                        <Button fx:id="loginbutton1" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginPersonnel" text="Giris Yap">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -84,7 +84,7 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginbutton2" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" text="Giris Yap">
+                        <Button fx:id="loginbutton2" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginBranchEx" text="Giris Yap">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -125,7 +125,7 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginbutton3" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" text="Giris Yap">
+                        <Button fx:id="loginbutton3" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginChiefEx" text="Giris Yap">
                            <font>
                               <Font size="24.0" />
                            </font>
