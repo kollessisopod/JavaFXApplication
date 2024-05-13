@@ -1,0 +1,18 @@
+Transaction Date: 2024-05-13T05:12:40.346981
+Branch:sube2
+Product ID: urun_algida1
+Product Name: cornetto
+Quantity: 3
+
+Product ID: urun_algida2
+Product Name: magnum
+Quantity: 1
+
+--------------------
+Transaction Date: 2024-05-13T05:12:56.388730500
+Branch:sube2
+Product ID: urun_algida2
+Product Name: magnum
+Quantity: 12
+
+--------------------

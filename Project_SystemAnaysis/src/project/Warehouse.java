@@ -24,6 +24,12 @@ public class Warehouse implements Serializable{
 	        return quantity;
 	    }
 	}
+
+	public Map<Product, Integer> getProductQuantities() {
+		return productQuantities;
+	}
+
+
 	
 	
 	

@@ -16,7 +16,7 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <Separator layoutY="39.0" prefHeight="10.0" prefWidth="175.0" />
-            <Label layoutY="8.0" text="Subeye Alim">
+            <Label layoutX="1.0" layoutY="163.0" text="Şubeye Alım">
                <font>
                   <Font size="24.0" />
                </font>
@@ -43,7 +43,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="textField_Name" promptText="Personel Ismi" GridPane.rowIndex="1">
+                  <TextField fx:id="textField_Name" promptText="Personel İsmi" GridPane.rowIndex="1">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Font size="24.0" />
                      </font>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#employPersonnel" text="ISE AL" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#employPersonnel" text="İŞE AL" GridPane.rowIndex="4">
                      <font>
                         <Font size="24.0" />
                      </font>

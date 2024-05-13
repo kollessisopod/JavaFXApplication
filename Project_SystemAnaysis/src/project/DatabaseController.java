@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -66,35 +67,82 @@ public class DatabaseController implements Serializable {
         // Check if the selected branch exists in the branchMap
         if (branchMap.containsKey(selectedBranch)) {
             // Remove the branch from the map
+            Branch branch = branchMap.get(selectedBranch);
+            
+            // Use iterator to remove branch executives belonging to the branch
+            Iterator<Map.Entry<String, BranchExecutive>> executiveIterator = branchExecutiveMap.entrySet().iterator();
+            while (executiveIterator.hasNext()) {
+                Map.Entry<String, BranchExecutive> entry = executiveIterator.next();
+                BranchExecutive branchEx = entry.getValue();
+                if (branchEx.getBelongingBranch() == branch) {
+                    executiveIterator.remove();
+                }
+            }
+            
+            // Use iterator to remove personnel belonging to the branch
+            Iterator<Map.Entry<String, Personnel>> personnelIterator = personnelMap.entrySet().iterator();
+            while (personnelIterator.hasNext()) {
+                Map.Entry<String, Personnel> entry = personnelIterator.next();
+                Personnel personnel = entry.getValue();
+                if (personnel.getBelongingBranch() == branch) {
+                    personnelIterator.remove();
+                }
+            }
+            
             branchMap.remove(selectedBranch);
             System.out.println("Branch '" + selectedBranch + "' deleted successfully.");
             saveState("database.bat");
         } else {
             System.out.println("Branch '" + selectedBranch + "' not found.");
         }
-
     }
     
     public void deleteBrand(String selectedBrand) {
-        if (brandMap.containsKey(selectedBrand)) {
-            brandMap.remove(selectedBrand);
-            System.out.println("Brand '" + selectedBrand + "' deleted successfully.");
-            saveState("database.bat");
-        } else {
-            System.out.println("Brand '" + selectedBrand + "' not found.");
+        Iterator<Map.Entry<String, Product>> iterator = productMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Product> entry = iterator.next();
+            Product product = entry.getValue();
+            if (product.getBrand().equals(selectedBrand)) {
+                iterator.remove(); // Safely remove the product from productMap
+                // Remove the product from all branches
+                for (Branch branch : branchMap.values()) {
+                    branch.getProductQuantities().remove(product);
+                }
+                // Remove the product from the warehouse if present
+                warehouse.getProductQuantities().remove(product);
+            }
         }
+        // Remove the brand from the brandMap
+        brandMap.remove(selectedBrand);
+        System.out.println("Brand '" + selectedBrand + "' deleted successfully.");
+        saveState("database.bat");
 
     }
     
     public void deleteProduct(String selectedProduct) {
         if (productMap.containsKey(selectedProduct)) {
-        	productMap.remove(selectedProduct);
+            Product product = productMap.get(selectedProduct);
+            
+            // Remove the product from each branch
+            for (Branch branch : branchMap.values()) {
+                if (branch.getProductQuantities().containsKey(product)) {
+                    branch.getProductQuantities().remove(product);
+                }
+            }
+
+            // Remove the product from the warehouse if present
+            if (warehouse.getProductQuantities().containsKey(product)) {
+                warehouse.getProductQuantities().remove(product);
+            }
+
+            // Remove the product from the productMap
+            productMap.remove(selectedProduct);
+            
             System.out.println("Product '" + selectedProduct + "' deleted successfully.");
             saveState("database.bat");
         } else {
             System.out.println("Product '" + selectedProduct + "' not found.");
         }
-
     }
  
     
@@ -106,8 +154,12 @@ public class DatabaseController implements Serializable {
     
     public void setBranchQuantity(Product product, Integer quantity, Branch branch) {
     	
-    	branch.setQuantity(product, quantity);
-    	saveState("database.bat");
+        if (branch.hasProduct(product)) {
+            int existingQuantity = branch.getQuantity(product);
+            branch.setQuantity(product, existingQuantity + quantity);
+        } else {
+            branch.setQuantity(product, quantity);
+        }    	saveState("database.bat");
 
     }
     
@@ -402,26 +454,19 @@ public class DatabaseController implements Serializable {
     //------------- FILE OPERATIONS ----------------//
     
     public void createTransactionHistoryFile(Branch branch) {
-        // Name the file with branch ID and transaction history
         String fileName = branch.getBranchID() + "_transaction_history.txt";
 
         try {
-            // Create a FileWriter to write to the file
             FileWriter writer = new FileWriter(fileName);
-
-            // Get the transaction history of the branch
             List<Transaction> transactionHistory = branch.getTransactionHistory();
 
-            // Iterate through each transaction in the history
             for (Transaction transaction : transactionHistory) {
                 writer.write("Transaction Date: " + transaction.getDateTime() + "\n");
+                writer.write("Branch:" + branch.getBranchID() + "\n");
 
-                // Iterate through each transaction element
                 for (TransactionElement element : transaction.getTransactionElements()) {
                     Product product = element.getProduct();
                     int quantity = element.getQuantity();
-
-                    // Write product information to the file
                     writer.write("Product ID: " + product.getProductID() + "\n");
                     writer.write("Product Name: " + product.getProductName() + "\n");
                     writer.write("Quantity: " + quantity + "\n");
@@ -431,6 +476,45 @@ public class DatabaseController implements Serializable {
                 writer.write("--------------------\n");
             }
 
+            // Close the FileWriter
+            writer.close();
+            System.out.println("Transaction history file created successfully: " + fileName);
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the transaction history file.");
+            e.printStackTrace();
+        }
+    }
+    
+    public void createChiefHistoryFile() {
+        String fileName = "all_branches_transaction_history.txt";
+
+        try {
+            FileWriter writer = new FileWriter(fileName);
+            
+            
+            for (HashMap.Entry<String, Branch> entry : branchMap.entrySet()) {
+                Branch branch = entry.getValue();
+            
+            
+            List<Transaction> transactionHistory = branch.getTransactionHistory();
+
+            for (Transaction transaction : transactionHistory) {
+                writer.write("Transaction Date: " + transaction.getDateTime() + "\n");
+                writer.write("Branch:" + branch.getBranchID() + "\n");
+
+                for (TransactionElement element : transaction.getTransactionElements()) {
+                    Product product = element.getProduct();
+                    int quantity = element.getQuantity();
+
+                    writer.write("Product ID: " + product.getProductID() + "\n");
+                    writer.write("Product Name: " + product.getProductName() + "\n");
+                    writer.write("Quantity: " + quantity + "\n");
+                    writer.write("\n");
+                }
+
+                writer.write("--------------------\n");
+            	}
+            }
             // Close the FileWriter
             writer.close();
             System.out.println("Transaction history file created successfully: " + fileName);

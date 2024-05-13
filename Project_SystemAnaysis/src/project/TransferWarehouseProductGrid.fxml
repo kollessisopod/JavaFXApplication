@@ -25,7 +25,7 @@
           <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="166.0">
                <children>
                   <ListView fx:id="listViewBranch" layoutX="6.0" layoutY="87.0" prefHeight="310.0" prefWidth="150.0" />
-                  <Label layoutX="25.0" layoutY="57.0" text="Sube Seciniz">
+                  <Label layoutX="25.0" layoutY="57.0" text="Şube Seçiniz">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -34,7 +34,7 @@
           <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="173.0">
                <children>
                   <ListView fx:id="listViewProductsOfWarehouse" layoutX="11.0" layoutY="86.0" prefHeight="310.0" prefWidth="150.0" />
-                  <Label layoutX="37.0" layoutY="58.0" text="Urun Seciniz">
+                  <Label layoutX="37.0" layoutY="58.0" text="Ürün Seçiniz">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -45,7 +45,7 @@
       </SplitPane>
       <AnchorPane prefHeight="400.0" prefWidth="280.0" GridPane.columnIndex="1">
          <children>
-            <Button layoutX="18.0" layoutY="287.0" mnemonicParsing="false" onAction="#transferProductToBranch" prefHeight="98.0" prefWidth="222.0" text="SUBEYE TRANSFER ET" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="18.0" layoutY="287.0" mnemonicParsing="false" onAction="#transferProductToBranch" prefHeight="98.0" prefWidth="222.0" text="ŞUBEYE TRANSFER ET" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
@@ -60,7 +60,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Label fx:id="labelWarehouseQuantity" alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="59.0" prefWidth="253.0" wrapText="true">
+                        <Label fx:id="labelWarehouseQuantity" alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="59.0" prefWidth="253.0" text="Depo Adedi" wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -69,7 +69,7 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="53.0" prefWidth="253.0">
                      <children>
-                        <Label fx:id="labelBranchQuantity" alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="59.0" prefWidth="253.0" wrapText="true">
+                        <Label fx:id="labelBranchQuantity" alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="59.0" prefWidth="253.0" text="Şube Adedi" wrapText="true">
                            <font>
                               <Font size="18.0" />
                            </font>

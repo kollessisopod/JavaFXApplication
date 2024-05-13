@@ -23,8 +23,8 @@
           <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="64.0" />
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0">
                <children>
-                  <ListView fx:id="listViewProductsOfWarehouseDetailed" layoutX="8.0" layoutY="75.0" prefHeight="309.0" prefWidth="200.0" />
-                  <Label layoutX="58.0" layoutY="47.0" text="Urun Seciniz">
+                  <ListView fx:id="listViewProductByBranchDetailed" layoutX="8.0" layoutY="75.0" prefHeight="309.0" prefWidth="200.0" />
+                  <Label fx:id="labelBranchID" layoutX="59.0" layoutY="21.0" text="Ürün Seçiniz">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -35,17 +35,22 @@
       </SplitPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="labelProductName" alignment="TOP_LEFT" layoutX="14.0" layoutY="37.0" prefHeight="71.0" prefWidth="298.0" text="Urun Ismi:" wrapText="true">
+            <Label fx:id="labelProductName" alignment="TOP_LEFT" layoutX="7.0" layoutY="14.0" prefHeight="71.0" prefWidth="298.0" text="Ürün İsmi:" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="labelProductBrand" alignment="TOP_LEFT" layoutX="14.0" layoutY="116.0" prefHeight="95.0" prefWidth="298.0" text="Urun Markasi:" wrapText="true">
+            <Label fx:id="labelProductBrand" alignment="TOP_LEFT" layoutX="7.0" layoutY="85.0" prefHeight="95.0" prefWidth="298.0" text="Ürün Markası:" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="labelWarehouseQuantity" alignment="TOP_LEFT" layoutX="14.0" layoutY="240.0" prefHeight="81.0" prefWidth="298.0" text="Depodaki Urun Adedi:" wrapText="true">
+            <Label fx:id="labelBranchQuantity" alignment="TOP_LEFT" layoutX="7.0" layoutY="304.0" prefHeight="81.0" prefWidth="298.0" text="Stoktaki Ürün Adedi:" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelProductDescription" alignment="TOP_LEFT" layoutX="7.0" layoutY="180.0" prefHeight="95.0" prefWidth="298.0" text="Ürün Açıklaması:" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>

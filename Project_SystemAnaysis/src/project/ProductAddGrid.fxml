@@ -32,12 +32,12 @@
             <Insets />
          </GridPane.margin>
       </Button>
-      <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="161.0" text="URUN ID'SI:" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="161.0" text="ÜRÜN ID'Sİ:" textAlignment="RIGHT">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="169.0" text="URUN ISMI: " textAlignment="RIGHT" GridPane.rowIndex="1">
+      <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="160.0" text="ÜRÜN İSMİ:" textAlignment="RIGHT" GridPane.rowIndex="1">
          <font>
             <Font size="24.0" />
          </font>
@@ -52,13 +52,16 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="170.0" text="URUN ACIKLAMASI: " textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2">
+      <Label alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="170.0" text="ÜRÜN AÇIKLAMASI:" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="textArea_ProductDescription" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label alignment="CENTER_RIGHT" prefHeight="86.0" prefWidth="170.0" text="URUNUN MARKASI:" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3">
+      <TextArea fx:id="textArea_ProductDescription" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font size="18.0" />
+         </font></TextArea>
+      <Label alignment="CENTER_RIGHT" prefHeight="86.0" prefWidth="170.0" text="ÜRÜNÜN MARKASI:" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="3">
          <font>
             <Font size="24.0" />
          </font>

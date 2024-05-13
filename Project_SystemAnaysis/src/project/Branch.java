@@ -36,6 +36,9 @@ public class Branch implements Serializable{
 	
 	public void setQuantity(Product product, Integer change) {
 		productQuantities.put(product, change);
+		if(change == 0) {
+			productQuantities.remove(product, change);
+		}
 		System.out.println("Product name:" + product.getProductName() + " quantity: " + change);
 	}
 	
@@ -59,6 +62,10 @@ public class Branch implements Serializable{
 
 	public void setTransactionHistory(Vector<Transaction> transactionHistory) {
 		this.transactionHistory = transactionHistory;
+	}
+
+	public boolean hasProduct(Product product) {
+		return productQuantities.containsKey(product);
 	}
 	
 }

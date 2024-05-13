@@ -25,12 +25,12 @@
           <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="166.0">
                <children>
                   <ListView fx:id="listViewTransaction" layoutX="7.0" layoutY="50.0" prefHeight="253.0" prefWidth="150.0" />
-                  <Label layoutX="24.0" layoutY="14.0" text="Islem Dekontu">
+                  <Label layoutX="24.0" layoutY="14.0" text="İşlem Dekontu">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" layoutX="24.0" layoutY="313.0" mnemonicParsing="false" onAction="#confirmTransaction" prefHeight="70.0" prefWidth="115.0" text="ISLEMI ONAYLA" textAlignment="CENTER" wrapText="true">
+                  <Button alignment="CENTER" layoutX="24.0" layoutY="313.0" mnemonicParsing="false" onAction="#confirmTransaction" prefHeight="70.0" prefWidth="115.0" text="İŞLEMİ ONAYLA" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -38,13 +38,13 @@
                </children></AnchorPane>
           <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="173.0">
                <children>
-                  <ListView fx:id="listViewProductByBranch" layoutX="11.0" layoutY="71.0" prefHeight="233.0" prefWidth="150.0" />
-                  <Label layoutX="37.0" layoutY="43.0" text="Urun Seciniz">
+                  <ListView fx:id="listViewProductByBranch" layoutX="11.0" layoutY="83.0" prefHeight="292.0" prefWidth="150.0" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="28.0" prefHeight="59.0" prefWidth="150.0" text="Şubeden Ürün Seçiniz" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelBranchID" alignment="TOP_CENTER" layoutX="-1.0" prefHeight="27.0" prefWidth="174.0" text="Sube Ismi">
+                  <Label fx:id="labelBranchID" alignment="TOP_CENTER" layoutX="-1.0" layoutY="2.0" prefHeight="27.0" prefWidth="174.0" text="Sube Ismi">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -55,13 +55,13 @@
       </SplitPane>
       <AnchorPane prefHeight="400.0" prefWidth="280.0" GridPane.columnIndex="1">
          <children>
-            <Button layoutX="18.0" layoutY="287.0" mnemonicParsing="false" onAction="#addToTransaction" prefHeight="98.0" prefWidth="222.0" text="ISLEME DAHIL ET" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="18.0" layoutY="287.0" mnemonicParsing="false" onAction="#addToTransaction" prefHeight="98.0" prefWidth="222.0" text="İŞLEME DAHİL ET" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
             <Spinner fx:id="setQuantitySpinner" editable="true" layoutX="38.0" layoutY="200.0" prefHeight="66.0" prefWidth="182.0" />
-            <Label layoutX="66.0" layoutY="162.0" text="Satilacak Miktar">
+            <Label layoutX="66.0" layoutY="162.0" text="Satılacak Miktar">
                <font>
                   <Font size="18.0" />
                </font>

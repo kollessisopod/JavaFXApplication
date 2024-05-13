@@ -35,6 +35,10 @@ public class Product implements Serializable{
 	public Brand getBelongingBrand() {
 		return belongingBrand;
 	}
+
+	public Object getBrand() {
+		return belongingBrand;
+	}
 	
 	
 }

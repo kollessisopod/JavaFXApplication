@@ -12,10 +12,15 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="640.0" layoutY="360.0" mnemonicParsing="false" onAction="#startProgram" text="Programı Başlat" textAlignment="JUSTIFY">
+      <Button layoutX="69.0" layoutY="111.0" mnemonicParsing="false" onAction="#startProgram" prefHeight="230.0" prefWidth="340.0" text="Programı Başlat" textAlignment="JUSTIFY">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
+      <Label layoutX="471.0" layoutY="160.0" prefHeight="559.0" prefWidth="809.0" text="                                     _____________&#10;                                    /             \&#10;                                   |\ ____   ____ /|&#10;                                   | |_-_/\_/\_-_| |&#10;                                  /|      / \      |\&#10;                                 | |    /|___|\    | |&#10;                                 |_|   /       \   |_|&#10;                                 |_|___|_______|___|_|&#10;">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

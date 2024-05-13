@@ -22,7 +22,7 @@
         <tabs>
         
         
-          <Tab text="Sube Calisani GIRIS">
+          <Tab text="Personel GİRİŞ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -44,12 +44,12 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginbutton1" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginPersonnel" text="Giris Yap">
+                        <Button fx:id="loginbutton1" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginPersonnel" text="Giriş Yap">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Label layoutX="660.0" layoutY="162.0" prefHeight="189.0" prefWidth="278.0" text="SUBE CALISANI&#10;GIRIS EKRANI&#10;">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="660.0" layoutY="162.0" prefHeight="190.0" prefWidth="260.0" text="PERSONEL GİRİŞ EKRANI" wrapText="true">
                            <font>
                               <Font size="36.0" />
                            </font>
@@ -62,7 +62,7 @@
           
           
 
-          <Tab text="Sube Muduru GIRIS">
+          <Tab text="Şube Müdürü GİRİŞ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -84,12 +84,12 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginbutton2" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginBranchEx" text="Giris Yap">
+                        <Button fx:id="loginbutton2" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginBranchEx" text="Giriş Yap">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Label layoutX="660.0" layoutY="162.0" prefHeight="189.0" prefWidth="278.0" text="SUBE MUDURU&#10;GIRIS EKRANI&#10;">
+                        <Label layoutX="660.0" layoutY="162.0" prefHeight="189.0" prefWidth="278.0" text="ŞUBE MÜDÜRÜ GİRİŞ EKRANI" wrapText="true">
                            <font>
                               <Font size="36.0" />
                            </font>
@@ -103,7 +103,7 @@
           
           
 
-          <Tab text="Yonetici GIRIS">
+          <Tab text="Yönetici GİRİŞ">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -125,12 +125,12 @@
                               <Font size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginbutton3" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginChiefEx" text="Giris Yap">
+                        <Button fx:id="loginbutton3" layoutX="265.0" layoutY="414.0" mnemonicParsing="false" onAction="#loginChiefEx" text="Giriş Yap">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Label layoutX="660.0" layoutY="162.0" prefHeight="189.0" prefWidth="278.0" text="YONETICI&#10;GIRIS EKRANI&#10;">
+                        <Label layoutX="660.0" layoutY="162.0" prefHeight="189.0" prefWidth="232.0" text="YÖNETİCİ GİRİŞ EKRANI&#10;" wrapText="true">
                            <font>
                               <Font size="36.0" />
                            </font>

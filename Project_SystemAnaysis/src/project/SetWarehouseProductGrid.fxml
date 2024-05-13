@@ -26,7 +26,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="241.0">
                <children>
                   <ListView fx:id="listViewProduct" layoutX="8.0" layoutY="75.0" prefHeight="309.0" prefWidth="200.0" />
-                  <Label layoutX="58.0" layoutY="47.0" text="Urun Seciniz">
+                  <Label layoutX="58.0" layoutY="47.0" text="Ürün Seçiniz">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -37,13 +37,18 @@
       </SplitPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Button layoutX="45.0" layoutY="250.0" mnemonicParsing="false" onAction="#setWarehouseProduct" prefHeight="98.0" prefWidth="222.0" text="DEPO MIKTARINI AYARLA" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="45.0" layoutY="250.0" mnemonicParsing="false" onAction="#setWarehouseProduct" prefHeight="98.0" prefWidth="222.0" text="DEPO MİKTARINI AYARLA" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
             <Spinner fx:id="setQuantitySpinner" editable="true" layoutX="65.0" layoutY="167.0" prefHeight="66.0" prefWidth="182.0" />
             <Label layoutX="104.0" layoutY="139.0" text="Hedef Miktar">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelWarehouseQuantity" alignment="CENTER" layoutX="85.0" layoutY="42.0" prefHeight="75.0" prefWidth="141.0" text="Seçili Ürünün Depo Miktarı" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>

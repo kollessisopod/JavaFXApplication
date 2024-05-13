@@ -20,7 +20,7 @@
     <RowConstraints maxHeight="128.60001220703128" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteSelectedProduct" prefHeight="51.0" prefWidth="312.0" text="SIL" GridPane.rowIndex="2">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#deleteSelectedProduct" prefHeight="51.0" prefWidth="312.0" text="SİL" GridPane.rowIndex="2">
          <font>
             <Font size="24.0" />
          </font>
@@ -28,13 +28,13 @@
             <Insets />
          </GridPane.margin>
       </Button>
-      <Label alignment="CENTER" prefHeight="47.0" prefWidth="430.0" text="URUNLER" GridPane.columnIndex="1">
+      <Label alignment="CENTER" prefHeight="47.0" prefWidth="430.0" text="ÜRÜNLER" GridPane.columnIndex="1">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <ListView fx:id="listViewProduct" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label fx:id="labelBranchIndicator" prefHeight="267.0" prefWidth="164.0" text="Silinecek Urunu Seciniz" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
+      <Label fx:id="labelBranchIndicator" prefHeight="267.0" prefWidth="164.0" text="Silinecek Ürünü Seçiniz" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1">
          <font>
             <Font size="24.0" />
          </font>

@@ -13,13 +13,13 @@
          <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="994.0" prefWidth="710.0">
                <children>
-                  <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#addNewBranchPopUp" prefHeight="78.0" prefWidth="274.0" text="SUBE EKLE">
+                  <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#addNewBranchPopUp" prefHeight="78.0" prefWidth="274.0" text="ŞUBE EKLE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
                   <Separator layoutX="14.0" layoutY="102.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="17.0" layoutY="294.0" mnemonicParsing="false" onAction="#assignBranchExecutivePopUp" prefHeight="66.0" prefWidth="685.0" text="SUBE MUDURU ATAMA">
+                  <Button layoutX="17.0" layoutY="294.0" mnemonicParsing="false" onAction="#assignBranchExecutivePopUp" prefHeight="66.0" prefWidth="685.0" text="ŞUBE MÜDÜRÜ ATAMA">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -27,13 +27,13 @@
                   <Separator layoutX="14.0" layoutY="193.0" prefHeight="9.0" prefWidth="691.0" />
                   <Separator layoutX="14.0" layoutY="284.0" prefHeight="9.0" prefWidth="691.0" />
                   <Separator layoutX="14.0" layoutY="375.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="14.0" layoutY="385.0" mnemonicParsing="false" onAction="#setWarehouseProductPopUp" prefHeight="66.0" prefWidth="685.0" text="DEPO'YA URUN EKLE">
+                  <Button layoutX="16.0" layoutY="385.0" mnemonicParsing="false" onAction="#setWarehouseProductPopUp" prefHeight="66.0" prefWidth="685.0" text="DEPO'YA ÜRÜN EKLE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
                   <Separator layoutX="14.0" layoutY="466.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="425.0" layoutY="20.0" mnemonicParsing="false" onAction="#deleteBranchPopUp" prefHeight="78.0" prefWidth="274.0" text="SUBE SIL">
+                  <Button layoutX="425.0" layoutY="20.0" mnemonicParsing="false" onAction="#deleteBranchPopUp" prefHeight="78.0" prefWidth="274.0" text="ŞUBE SİL">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -43,55 +43,61 @@
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <Button layoutX="425.0" layoutY="107.0" mnemonicParsing="false" onAction="#deleteBrandPopUp" prefHeight="78.0" prefWidth="274.0" text="MARKA SIL">
+                  <Button layoutX="425.0" layoutY="107.0" mnemonicParsing="false" onAction="#deleteBrandPopUp" prefHeight="78.0" prefWidth="274.0" text="MARKA SİL">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <Button layoutX="14.0" layoutY="203.0" mnemonicParsing="false" onAction="#addNewProductPopUp" prefHeight="78.0" prefWidth="274.0" text="URUN EKLE">
+                  <Button layoutX="14.0" layoutY="203.0" mnemonicParsing="false" onAction="#addNewProductPopUp" prefHeight="78.0" prefWidth="274.0" text="ÜRÜN EKLE">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <Button layoutX="425.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteProductPopUp" prefHeight="78.0" prefWidth="274.0" text="URUN SIL">
+                  <Button layoutX="425.0" layoutY="203.0" mnemonicParsing="false" onAction="#deleteProductPopUp" prefHeight="78.0" prefWidth="274.0" text="ÜRÜN SİL">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <Button layoutX="14.0" layoutY="476.0" mnemonicParsing="false" onAction="#transferProductToBranchPopUp" prefHeight="66.0" prefWidth="685.0" text="DEPO'DAN SUBEYE URUN YOLLA">
+                  <Button layoutX="17.0" layoutY="476.0" mnemonicParsing="false" onAction="#transferProductToBranchPopUp" prefHeight="66.0" prefWidth="685.0" text="DEPODAN ŞUBEYE ÜRÜN KARGOLA">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
                   <Separator layoutX="9.0" layoutY="554.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="16.0" layoutY="564.0" mnemonicParsing="false" onAction="#changePasswordCEPopUp" prefHeight="66.0" prefWidth="686.0" text="SIFRE DEGISTIR">
+                  <Button layoutX="19.0" layoutY="564.0" mnemonicParsing="false" onAction="#changePasswordCEPopUp" prefHeight="66.0" prefWidth="686.0" text="ŞİFRE DEĞİŞTİR">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
                   <Separator layoutX="11.0" layoutY="642.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="14.0" layoutY="652.0" mnemonicParsing="false" onAction="#changePasswordAPPopUp" prefHeight="66.0" prefWidth="685.0" text="TUM PERSONELIN SIFRESINI DEGISTIR" wrapText="true">
+                  <Button layoutX="20.0" layoutY="652.0" mnemonicParsing="false" onAction="#changePasswordAPPopUp" prefHeight="66.0" prefWidth="685.0" text="TÜM PERSONELİN ŞİFRESİNİ DEĞİŞTİR" wrapText="true">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
                   <Separator layoutX="9.0" layoutY="730.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="22.0" layoutY="745.0" mnemonicParsing="false" onAction="#seeWarehouseProductsPopUp" prefHeight="66.0" prefWidth="685.0" text="DEPOYU GOR" wrapText="true">
+                  <Button layoutX="20.0" layoutY="740.0" mnemonicParsing="false" onAction="#seeWarehouseProductsPopUp" prefHeight="66.0" prefWidth="685.0" text="DEPOYU GÖR" wrapText="true">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <Separator layoutX="17.0" layoutY="823.0" prefHeight="9.0" prefWidth="691.0" />
+                  <Separator layoutX="9.0" layoutY="818.0" prefHeight="9.0" prefWidth="691.0" />
+                  <Button layoutX="17.0" layoutY="828.0" mnemonicParsing="false" onAction="#printTransactionLogFull" prefHeight="66.0" prefWidth="685.0" text="RAPOR ÇIKAR" wrapText="true">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="9.0" layoutY="906.0" prefHeight="9.0" prefWidth="691.0" />
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="639.0" mnemonicParsing="false" onAction="#switchToLogin" text="CIKIS YAP">
+      <Button layoutX="14.0" layoutY="639.0" mnemonicParsing="false" onAction="#switchToLogin" text="ÇIKIŞ YAP">
          <font>
             <Font size="30.0" />
          </font>
       </Button>
-      <Label layoutX="99.0" layoutY="32.0" text="CHIEF EX&#10;EKRANI" textAlignment="CENTER">
+      <Label layoutX="99.0" layoutY="32.0" prefHeight="310.0" prefWidth="362.0" text="YÖNETİCİ EKRANI" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="72.0" />
          </font>

@@ -13,7 +13,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="662.0" prefWidth="710.0">
                <children>
-                  <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#changePasswordBEPopUp" prefHeight="66.0" prefWidth="692.0" text="Sifre Degistir">
+                  <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#changePasswordBEPopUp" prefHeight="66.0" prefWidth="692.0" text="Şifre Değiştir">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -25,12 +25,18 @@
                      </font>
                   </Button>
                   <Separator layoutX="9.0" layoutY="202.0" prefHeight="9.0" prefWidth="691.0" />
-                  <Button layoutX="9.0" layoutY="218.0" mnemonicParsing="false" onAction="#printTransactionLog" prefHeight="66.0" prefWidth="692.0" text="Sube Islem Gecmisi Kaydini Al">
+                  <Button layoutX="9.0" layoutY="218.0" mnemonicParsing="false" onAction="#printTransactionLog" prefHeight="66.0" prefWidth="692.0" text="Şube İşlem Geçmişi Kaydını Al">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
                   <Separator layoutX="9.0" layoutY="299.0" prefHeight="9.0" prefWidth="691.0" />
+                  <Button layoutX="9.0" layoutY="309.0" mnemonicParsing="false" onAction="#stockInquiryPopUp" prefHeight="66.0" prefWidth="692.0" text="Şube Envanterini Gör">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="9.0" layoutY="390.0" prefHeight="9.0" prefWidth="691.0" />
                </children>
             </AnchorPane>
         </content>
@@ -40,7 +46,7 @@
             <Font size="30.0" />
          </font>
       </Button>
-      <Label layoutX="44.0" layoutY="32.0" text="SUBE MUDURU&#10;EKRANI" textAlignment="CENTER">
+      <Label layoutX="45.0" layoutY="14.0" prefHeight="426.0" prefWidth="490.0" text="ŞUBE MÜDÜRÜ EKRANI" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="72.0" />
          </font>

@@ -28,12 +28,12 @@
             <Insets />
          </GridPane.margin>
       </Button>
-      <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="161.0" text="SUBE ID'SI:">
+      <Label alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="161.0" text="ŞUBE ID'Sİ:">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="169.0" text="SUBE SEHRI:" GridPane.rowIndex="1">
+      <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="169.0" text="ŞUBE ŞEHRİ:" GridPane.rowIndex="1">
          <font>
             <Font size="24.0" />
          </font>

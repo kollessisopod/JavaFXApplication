@@ -1,5 +1,20 @@
+Transaction Date: 2024-05-13T05:12:40.346981
+Product ID: urun_algida1
+Product Name: cornetto
+Quantity: 3
+
+Product ID: urun_algida2
+Product Name: magnum
+Quantity: 1
+
+--------------------
+Transaction Date: 2024-05-13T05:12:56.388730500
+Product ID: urun_algida2
+Product Name: magnum
+Quantity: 12
+
+--------------------
 Transaction Date: 2024-05-13T03:40:42.606389100
-Branch:sube1
 Product ID: urun_algida2
 Product Name: magnum
 Quantity: 12
@@ -14,7 +29,6 @@ Quantity: 5
 
 --------------------
 Transaction Date: 2024-05-13T04:01:23.812562300
-Branch:sube1
 Product ID: urun_algida2
 Product Name: magnum
 Quantity: 5
@@ -22,19 +36,5 @@ Quantity: 5
 Product ID: urun_algida1
 Product Name: cornetto
 Quantity: 1
-
---------------------
-Transaction Date: 2024-05-13T05:59:53.403419900
-Branch:sube1
-Product ID: urun_algida1
-Product Name: cornetto
-Quantity: 5
-
---------------------
-Transaction Date: 2024-05-13T06:13:09.517023300
-Branch:sube1
-Product ID: yeni1
-Product Name: sdf
-Quantity: 13
 
 --------------------
