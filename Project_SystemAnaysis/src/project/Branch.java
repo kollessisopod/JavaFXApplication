@@ -2,6 +2,7 @@ package project;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -25,6 +26,10 @@ public class Branch implements Serializable{
 		return branchID;
 	}
 
+	public Map<Product, Integer> getProductQuantities() {
+		return productQuantities;
+	}
+
 	public String getBranchCity() {
 		return branchCity;
 	}
@@ -45,11 +50,15 @@ public class Branch implements Serializable{
 	
     public void recordTransaction(Transaction transaction) {
         transactionHistory.add(transaction);
+        System.out.println("added to transaction log");
     }
-	
 
-	
-	
-	
+	public Vector<Transaction> getTransactionHistory() {
+		return transactionHistory;
+	}
+
+	public void setTransactionHistory(Vector<Transaction> transactionHistory) {
+		this.transactionHistory = transactionHistory;
+	}
 	
 }

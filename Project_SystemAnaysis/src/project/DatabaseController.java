@@ -2,6 +2,7 @@ package project;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -120,9 +121,55 @@ public class DatabaseController implements Serializable {
 
     }
 
+    public Boolean confirmTransaction(Transaction transaction, Branch branch) {
+    	
+        Map<Product, Integer> branchQuantities = branch.getProductQuantities();
+
+    	
+        for (TransactionElement element : transaction.getTransactionElements()) {
+            Product product = element.getProduct();
+            int transactionQuantity = element.getQuantity();
+
+            // Check if the product is in stock in the branch
+            if (branchQuantities.containsKey(product)) {
+                int branchQuantity = branchQuantities.get(product);
+
+                // If transaction quantity exceeds branch quantity, return false
+                if (transactionQuantity > branchQuantity) {
+                	System.out.println("Stock overload");
+                    return false;
+                }
+            } else {
+                // If the product is not in stock in the branch, return false
+                return false;
+            }
+        }
+        // If all elements are in stock, return true
+        return true;
+    	
+    }
+
     
+    public void proceedTransaction(Transaction transaction, Branch branch) {
+        Map<Product, Integer> branchQuantities = branch.getProductQuantities();
+
+        
+    	
+        for (TransactionElement element : transaction.getTransactionElements()) {
+            Product product = element.getProduct();
+            int transactionQuantity = element.getQuantity();
+
+            // Check if the product is in stock in the branch
+            if (branchQuantities.containsKey(product)) {
+                int branchQuantity = branchQuantities.get(product);
+                branch.setQuantity(product, branchQuantity - transactionQuantity);
+            }
+        }
+        
+        saveState("database.bat");
+    }
     
-    public void addToTransaction(Product product, Integer quantity, Branch branch, Transaction transaction ) {
+    public void addToTransaction(Product product, Integer quantity, Transaction transaction ) {
     	transaction.addTransactionElement(new TransactionElement(product, quantity));
     }
     
@@ -331,6 +378,7 @@ public class DatabaseController implements Serializable {
             Product product = element.getProduct();
             int quantity = element.getQuantity();
             list.add(product.getProductID() + ", Adet: " + quantity);
+            System.out.println("added to list>" + product.getProductID() + ", Adet: " + quantity);
         }
 	    return list;
 	}
@@ -346,8 +394,51 @@ public class DatabaseController implements Serializable {
     	
     	return branch.getQuantity(product);
     }
+    
+    
+    
+    
 	
     //------------- FILE OPERATIONS ----------------//
+    
+    public void createTransactionHistoryFile(Branch branch) {
+        // Name the file with branch ID and transaction history
+        String fileName = branch.getBranchID() + "_transaction_history.txt";
+
+        try {
+            // Create a FileWriter to write to the file
+            FileWriter writer = new FileWriter(fileName);
+
+            // Get the transaction history of the branch
+            List<Transaction> transactionHistory = branch.getTransactionHistory();
+
+            // Iterate through each transaction in the history
+            for (Transaction transaction : transactionHistory) {
+                writer.write("Transaction Date: " + transaction.getDateTime() + "\n");
+
+                // Iterate through each transaction element
+                for (TransactionElement element : transaction.getTransactionElements()) {
+                    Product product = element.getProduct();
+                    int quantity = element.getQuantity();
+
+                    // Write product information to the file
+                    writer.write("Product ID: " + product.getProductID() + "\n");
+                    writer.write("Product Name: " + product.getProductName() + "\n");
+                    writer.write("Quantity: " + quantity + "\n");
+                    writer.write("\n");
+                }
+
+                writer.write("--------------------\n");
+            }
+
+            // Close the FileWriter
+            writer.close();
+            System.out.println("Transaction history file created successfully: " + fileName);
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the transaction history file.");
+            e.printStackTrace();
+        }
+    }
     
     public void saveState(String filename) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
@@ -359,7 +450,9 @@ public class DatabaseController implements Serializable {
             oos.writeObject(productMap);
             oos.writeObject(defaultPassword);
             oos.writeObject(warehouse);
-            
+            for (Branch branch : branchMap.values()) {
+                oos.writeObject(branch.getTransactionHistory());
+            }
             
             System.out.println("Save Successful.");
 
@@ -381,6 +474,9 @@ public class DatabaseController implements Serializable {
         	defaultPassword = (String) ois.readObject();
         	warehouse = (Warehouse) ois.readObject();
 
+            for (Branch branch : branchMap.values()) {
+                branch.setTransactionHistory((Vector<Transaction>) ois.readObject());
+            }
             System.out.println("Load Successful.");
             printerOfAll();
 

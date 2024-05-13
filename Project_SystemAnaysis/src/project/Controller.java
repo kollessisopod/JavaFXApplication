@@ -5,11 +5,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.Objects;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,6 +30,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 
 public class Controller implements Initializable{
@@ -101,11 +107,7 @@ public class Controller implements Initializable{
 	@FXML
 	private Label labelBrandName;
 	@FXML
-	private Label labelBranchID;
-	@FXML
-	private Label labelPersonnelInfo;
-	@FXML
-	private Label labelBranchExecutiveInfo;
+	private Label labelBranchID = new Label();
 	@FXML
 	private Label labelProductName;
 	@FXML
@@ -125,6 +127,7 @@ public class Controller implements Initializable{
 	static Branch activeBranch;
 	static Product activeProduct;
 	static Transaction activeTransaction;
+	static Integer activeStage = 0;
 	int activeSetInteger;
 	int activeTransferInteger;
 
@@ -134,7 +137,7 @@ public class Controller implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		databaseController = new DatabaseController();
 		refreshAllLists();
-		//labelUpdater();
+		labelUpdater();
 		SpinnerValueFactory<Integer> setValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100000);
 		SpinnerValueFactory<Integer> transferValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100000);
 
@@ -183,6 +186,17 @@ public class Controller implements Initializable{
 		    }
 		});
 		
+		listViewProductByBranch.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+		        String selectedProduct = listViewProductByBranch.getSelectionModel().getSelectedItem();
+		        if (selectedProduct != null) {
+		            activeProduct = databaseController.getProduct(selectedProduct);
+		            labelProductName.setText(selectedProduct);
+		            labelBranchQuantity.setText(databaseController.getBranchQuantity(activeProduct, activeBranch).toString());}
+		    }
+		});
+		
 		listViewProductsOfWarehouseDetailed.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
@@ -200,19 +214,31 @@ public class Controller implements Initializable{
 		    }
 		});
 		
+		if (activeTransaction != null && activeTransaction.getTransactionElements() != null) {
+		    activeTransaction.getTransactionElements();
+		}
+		
 	}
 	
 	
 	public void labelUpdater() {
-		if(activePersonnel != null) {
-			System.out.println(" personnel not null");
-	        labelPersonnelInfo.setText("Personel: " + activePersonnel.getName() + activePersonnel.getSurname());            
+		
+		switch(activeStage) {
+		case 1:
+			System.out.println("personnel active");
+	        break;
+		case 2:
+			System.out.println("branch ex active");
+	        break;
+		case 3:
+			System.out.println("chief ex active");
+			break;
+		default:
+			break;
+		case 0:
+			break;
+		}
 
-		}
-		if(activeBranchExecutive != null) {
-			System.out.println(" branch ex not null");
-	        labelBranchExecutiveInfo.setText("Sube Muduru: " + activeBranchExecutive.getName() + activeBranchExecutive.getSurname());            
-		}
 		if(activeBranch!= null) {
 			System.out.println(" branch not null");
 			labelBranchID.setText(activeBranch.getBranchID());
@@ -309,7 +335,9 @@ public class Controller implements Initializable{
         listViewProduct.getItems().clear();
         listViewProductsOfWarehouse.getItems().clear();
         listViewProductsOfWarehouseDetailed.getItems().clear();
-
+        listViewProductByBranch.getItems().clear();
+        listViewTransaction.getItems().clear();
+        
         // Fetch the list of branches from the database
         listMaker = databaseController.getAllBranchNames();
         listViewBranch.getItems().addAll(listMaker);
@@ -368,41 +396,41 @@ public class Controller implements Initializable{
 	}
 	
 	public void switchToLogin(ActionEvent event) throws IOException {
+	
+		switchToTargetScene(event, "loginScene.fxml", "Giris Ekrani");
 		activePersonnel = null;
 		activeBranchExecutive = null;
 		activeChiefExecutive = null;
 		activeBranch = null;
-		activeProduct = null;		
-		switchToTargetScene(event, "loginScene.fxml", "Giris Ekrani");
-
+		activeProduct = null;	
 
 		
 	}
 	
 	public void switchToPersonnelScene(ActionEvent event, Personnel personnel) throws IOException {
-		
+		activePersonnel = personnel;
+		activeStage = 1;		
 		switchToTargetScene(event, "PersonnelScene.fxml", "Sube Calisani Ekrani");
 
-		activePersonnel = personnel;
-		activeBranch = activePersonnel.getBelongingBranch();
+
 		
 	}
 	
 	public void switchToBranchExecutiveScene(ActionEvent event, BranchExecutive branchEx) throws IOException {
-		
+		activeBranchExecutive = branchEx;
+		activeStage = 2;		
 		switchToTargetScene(event, "BranchExecutiveScene.fxml","Sube Muduru Ekrani");
 		
-		activeBranchExecutive = branchEx;
-		activeBranch = activeBranchExecutive.getBelongingBranch();	
+
 		
 	}
 	
 	public void switchToChiefExecutiveScene(ActionEvent event, ChiefExecutive chiefEx) throws IOException {
-		
+		activeChiefExecutive = chiefEx;
+		activeStage = 3;		
 		switchToTargetScene(event, "ChiefExecutiveScene.fxml", "Yonetici Ekrani");
 
-		activeChiefExecutive = chiefEx;
-		
+
 	}
 	
 	 
@@ -449,7 +477,10 @@ public class Controller implements Initializable{
     }
     
     public void employPersonnelPopUp(ActionEvent event) throws IOException{
+		activeBranch = activeBranchExecutive.getBelongingBranch();	
+		System.out.println("active branch id:" + activeBranch.getBranchID());
     	PopUpGenerator(event, "EmployPersonnelGrid.fxml", "Personel Ise Al");
+
     }
   
     public void setWarehouseProductPopUp(ActionEvent event) throws IOException{
@@ -466,8 +497,10 @@ public class Controller implements Initializable{
     }
     
     public void transactionPopUp(ActionEvent event) throws IOException{
-    	PopUpGenerator(event, "TransactionGrid.fxml", "Islem Yap");
     	activeTransaction = new Transaction();
+    	activeBranch = activePersonnel.getBelongingBranch();
+    	PopUpGenerator(event, "TransactionGrid.fxml", "Islem Yap");
+
     }
     
     public void stockInquiryPopUp(ActionEvent event) throws IOException{
@@ -580,19 +613,28 @@ public class Controller implements Initializable{
        Integer quantity = activeSetInteger;
 
        databaseController.transferProductsToBranch(activeProduct, quantity, activeBranch);
-       activeBranch = null;
-       activeProduct = null;
     }
 
     public void addToTransaction(ActionEvent event) {
         Integer quantity = activeSetInteger;
-    	databaseController.addToTransaction(activeProduct, quantity, activeBranch, activeTransaction);
+    	databaseController.addToTransaction(activeProduct, quantity, activeTransaction);
+    	refreshAllLists();
     }
     
     public void confirmTransaction(ActionEvent event) {
-    	activeBranch.recordTransaction(activeTransaction);
-        activeTransaction = null;
+    	
+    	if(databaseController.confirmTransaction(activeTransaction, activeBranch)){
+    	databaseController.proceedTransaction(activeTransaction, activeBranch);
+     	activeBranch.recordTransaction(activeTransaction);
+        activeTransaction = new Transaction();
+    	refreshAllLists();   		
+    	}
     }
+    
+    public void printTransactionLog(ActionEvent event) {
+    	databaseController.createTransactionHistoryFile(activeBranchExecutive.getBelongingBranch());
+    }
+    
     
     public void changePasswordBE(ActionEvent event) {
     	String oldPassword = textField_OldPassword.getText();
@@ -644,6 +686,30 @@ public class Controller implements Initializable{
             popupStage.setScene(new Scene(root));
             
             popupStage.show();
+            popupStage.setOnCloseRequest((EventHandler<WindowEvent>) new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                	switch(activeStage) {
+                	case 1:
+                		activeProduct = null;
+                		activeTransaction = null;
+                		activeBranch = null;
+                		break;
+                	case 2:
+                        activeProduct = null;
+                        activeBranch = null;
+                		break;
+                	case 3:
+                		activeProduct = null;
+                		activeBranch = null;
+                		activeBranchExecutive = null;
+                		
+                		break;
+                		
+                	}
+                    System.out.println("Window is closing");
+                }
+            });
                                     
         } catch (IOException e) {
             e.printStackTrace();
@@ -653,5 +719,23 @@ public class Controller implements Initializable{
     public void PopUpCloser(ActionEvent event) {
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		stage.close();
+    	switch(activeStage) {
+    	case 1:
+    		activeProduct = null;
+    		activeTransaction = null;
+    		activeBranch = null;
+    		break;
+    	case 2:
+            activeProduct = null;
+            activeBranch = null;
+    		break;
+    	case 3:
+    		activeProduct = null;
+    		activeBranch = null;
+    		activeBranchExecutive = null;
+    		
+    		break;
+    		
+    	}
     }
 }
