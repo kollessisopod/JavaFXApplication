@@ -1,0 +1,32 @@
+Transaction Date: 2024-05-13T12:48:14.202332500
+Branch:sube1_ist
+Product ID: alg_cor
+Product Name: Cornetto
+Quantity: 1
+
+--------------------
+Transaction Date: 2024-05-13T12:48:19.217596700
+Branch:sube1_ist
+Product ID: alg_cor
+Product Name: Cornetto
+Quantity: 3
+
+Product ID: alg_fri
+Product Name: Frigola
+Quantity: 1
+
+--------------------
+Transaction Date: 2024-05-13T12:48:31.815741600
+Branch:sube1_ist
+Product ID: alg_mgn
+Product Name: Magnum
+Quantity: 2
+
+--------------------
+Transaction Date: 2024-05-13T12:48:40.570566400
+Branch:sube1_ist
+Product ID: alg_fri
+Product Name: Frigola
+Quantity: 1
+
+--------------------
